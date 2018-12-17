@@ -17,6 +17,5 @@ return {
     authorize_url = {type = "url", required = true, func = validate_url},
     token_url = {type = "url", required = true, func = validate_url},
     user_url  = {type = "url", required = true, func = validate_url},
-    log_file = {type = "url", default = "/tmp/dogood-test.log"},
   }
 }
