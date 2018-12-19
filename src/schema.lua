@@ -15,7 +15,5 @@ end
 return {
   fields = {
     authorize_url = {type = "url", required = true, func = validate_url},
-    token_url = {type = "url", required = true, func = validate_url},
-    user_url  = {type = "url", required = true, func = validate_url},
   }
 }
