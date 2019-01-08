@@ -4,7 +4,7 @@ local _M = {}
 local cjson = require "cjson.safe"
 local pl_stringx = require "pl.stringx"
 local http = require "resty.http"
-local crypto = require "crypto"
+-- local crypto = require "crypto"
 local print_table = require 'pl.pretty'
 
 local responses = require "kong.tools.responses"
@@ -13,7 +13,7 @@ function _M.run(conf)
 
     -- Here will be performed the authentication and authorization calls to the oauth server
     local httpc = http:new()
-    local res, err = httpc:request_uri(conf.token_url, {
+    local res, err = httpc:request_uri(conf.authorize_url, {
         method = "GET",
         headers = {
             ["Content-Type"] = "application/json",
@@ -61,7 +61,7 @@ function _M.run(conf)
     
     -- Here will be performed the call to the api
     local httpc = http:new()
-    local res, err = httpc:request_uri(conf.token_url, {
+    local res, err = httpc:request_uri(conf.token_url , {
         method = "GET",
         headers = {
             ["Content-Type"] = "application/json",
